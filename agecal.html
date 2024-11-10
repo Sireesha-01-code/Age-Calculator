@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .header{
+        background-color: rgb(99, 140, 99);
+        color: rgb(236, 196, 143);
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 25px;
+        width: 100%;
+        left: 0;
+
+    }
+    h1{
+        margin-bottom: 20px;
+    }
+    .container{
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgb(131, 78, 10);
+        background-color: rgb(227, 217, 217)
+    }
+    .form{
+        color: rgb(199, 72, 72);
+    }
+    .btn{
+        border-radius: 20px;
+        text-align: center;
+        padding: 5px;
+        margin-top: 20px;
+        box-shadow: 0 3px 2px rgb(74, 74, 241);
+        
+    }
+    .result{
+        color: rgb(174, 11, 11);
+    }
+    .footer{
+        
+        background-color: rgb(241, 116, 241);
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        
+        left: 0;
+        width: 100%;
+    }
+    
+    
+
+</style>
+<body>
+    <div class="header">
+        <h1>Age & Distance Calculator</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                    <div class="converter">
+                        <h2 style="color: rgb(247, 10, 58);">Age Calculator</h2>
+                        <div class="form">
+                            <label for="dob">Date of Birth:</label>
+                            <input type="date"  id="dob">
+                        </div>
+                        <button  class= "btn" onclick="calculateAge()">Calculate Age</button>
+                        <div class="result">
+                            <p>Age in years: <span id="years"></span></p>
+                            <p>Age in Months: <span id="months"></span> </p>
+                            <p>Age in Hours: <span id="hours"></span></p>
+                            <p>Age in Minutes: <span id="minutes"></span></p>
+                            <p>Age in Seconds: <span id="seconds"></span></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+        
+            <p style="font-size:x-large ; color: rgb(23, 91, 88)">Designed by Sireesha Addanki</p>
+        
+    </div>
+    <script >
+        function calculateAge(){
+             var dob=document.getElementById('dob').value;
+             var today=new Date();
+             var birthDate=new Date(dob);
+             var ageInYears=today.getFullYear()-birthDate.getFullYear();
+             var ageInMonths=(ageInYears * 12)+(today.getMonth()-birthDate.getMonth());
+             var ageInHours=ageInYears*365*24;
+             var ageInMinutes=ageInYears*365*24*60;
+             var ageInSeconds=ageInYears*365*24*60*60;
+             document.getElementById('years').textContent=ageInYears;
+             document.getElementById('months').textContent=ageInMonths;
+             document.getElementById('hours').textContent=ageInHours;
+             document.getElementById('minutes').textContent=ageInMinutes;
+             document.getElementById('seconds').textContent=ageInSeconds;
+        }
+    </script>
+    
+</body>
+</html>
